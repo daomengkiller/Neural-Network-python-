@@ -1,8 +1,8 @@
 import sys
 from scipy import misc
-import numpy
+import numpy as np
 
-sys.argv = [' ', 'train.txt', 'train.npy']
+sys.argv = [' ', 'train.txt', 'train.npy']  # 系统输入参数
 
 
 def main():

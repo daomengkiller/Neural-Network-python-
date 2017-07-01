@@ -7,7 +7,9 @@ def main():
     inner_layers = []
     inner_layers.append(FullyConnect(17*17,20))#添加了新的层数
     inner_layers.append(Sigmoid())
-    inner_layers.append(FullyConnect(20, 26))
+    inner_layers.append(FullyConnect(20,15))
+    inner_layers.append(Sigmoid())
+    inner_layers.append(FullyConnect(15, 26))
     inner_layers.append(Sigmoid())  # 将全连接层和sigmoid层对接，其实是同一层
     losslayer = CrossEntropyLoss()  # 实例化损失函数
     accuray = Accuracy()  # 实例化准确函数

@@ -16,9 +16,9 @@ class Data():#处理各种数据
         bat = self.batch_size
         l = self.l#记录总长度
         if pos + bat >= l:#当这次批处理的长度数量不足时，重新开始
-            ret = (self.x[pos:1], self.y[pos:l])#
+            ret = (self.x[pos:l], self.y[pos:l])#
             self.pos = 0#重设图片位置
-            index = range(1)#图片序列
+            index = list(range(l))#图片序列
             np.random.shuffle(index)#重新排序
             self.x = self.x[index]#
             self.y = self.y[index]#

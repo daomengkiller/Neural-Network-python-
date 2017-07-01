@@ -2,16 +2,16 @@ from layers import *
 
 
 def main():
-    datalayer1 = Data('train.npy', 10000)  # 输入训练数据，一次批量为1024
+    datalayer1 = Data('train.npy', 1024)  # 输入训练数据，一次批量为1024
     datalayer2 = Data('validate.npy', 10000)  # 输入验证数据，一次性验证10000，
     inner_layers = []
     inner_layers.append(FullyConnect(17 * 17, 26))
     inner_layers.append(Sigmoid())  # 将全连接层和sigmoid层对接，其实是同一层
     losslayer = QuadraticLoss()  # 实例化损失函数
     accuray = Accuracy()  # 实例化准确函数
-    for layer in inner_layers:  # 循环处理学习率为1000
+    for layer in inner_layers:  # 循环处理学习率为1000,经过测试，设置为300更好
         layer.lr = 1000.0
-    epochs = 20  # 迭代次数
+    epochs = 30  # 迭代次数
     for i in range(epochs):  # 循环输出
         print('epochs:', i)  #
         losssum = 0  #
